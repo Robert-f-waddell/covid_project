@@ -26,10 +26,32 @@ server = app.server
 country_names =covid_df.location.unique()
 country_names.sort()
 
-app.layout = html.Div([
-    html.Div([dcc.Dropdown(id='group-select', options=[{'label': i, 'value': i} for i in country_names],
-                           value='TOR', style={'width': '140px'})]),
-    dcc.Graph('country statistics', config={'displayModeBar': False})])
+app.layout = html.Div(
+    children=[
+        html.Div(className='row',
+                 children=[
+                    html.Div(className='four columns div-user-controls',
+                             children=[
+                                 html.H2('Coronavirus Statistics'),
+                                 html.P('Visualising Coronavirus statistcs for the selected country with Plotly - Dash.'),
+                                 html.Div(
+                                     className='div-for-dropdown',
+                                     children=[
+                                         dcc.Dropdown(id='group-select', options=[{'label': i, 'value': i} for i in country_names],
+                                           value='Country', style={'backgroundColor': '#1E1E1E'}
+                                                      ),
+                                     ],
+                                     style={'color': '#1E1E1E'})
+                                ]
+                             ),
+                    html.Div(className='eight columns div-for-charts bg-grey',
+                             children=[
+                                 dcc.Graph('country statistics', config={'displayModeBar': False})
+                             ])
+                              ])
+        ]
+
+)
 
 @app.callback(
     Output('country statistics', 'figure'),
