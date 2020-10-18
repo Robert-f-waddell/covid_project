@@ -91,7 +91,7 @@ def update_graph(name):
                       colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
                       template='plotly_dark',
                       paper_bgcolor='rgba(0, 0, 0, 0)',
-                      plot_bgcolor='rgba(0, 0, 0, 0)',
+                      plot_bgcolor='rgba(0, 0, 0, 0)'
                      )
     return fig
     
