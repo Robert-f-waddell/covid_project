@@ -88,6 +88,7 @@ def update_graph(name):
     fig.update_layout(height=700,
                       width=900,
                       title_text= name,
+                      title_font_size = 3.6
                       font_family =  "Open Sans Semi Bold",
                       title_font_family =  "Open Sans Semi Bold",
                       showlegend=False,
