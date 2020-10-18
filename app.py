@@ -88,6 +88,8 @@ def update_graph(name):
     fig.update_layout(height=700,
                       width=900,
                       title_text= name,
+                      font_family =  "Open Sans Semi Bold",
+                      title_font_family =  "Open Sans Semi Bold",
                       showlegend=False,
                       colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
                       template='plotly_dark'
