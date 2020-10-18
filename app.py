@@ -85,8 +85,8 @@ def update_graph(name):
         row=2, col=2
     )
 
-    fig.update_layout(height=800,
-                      width=800,
+    fig.update_layout(height=700,
+                      width=900,
                       title_text= name,
                       showlegend=False,
                       colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
