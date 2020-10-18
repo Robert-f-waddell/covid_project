@@ -85,7 +85,14 @@ def update_graph(name):
         row=2, col=2
     )
 
-    fig.update_layout(height=800, width=800, title_text= name,showlegend=False)
+    fig.update_layout(autosize=True,
+                      {'text': name , 'font': {'color': 'white'}},
+                      showlegend=False,
+                      colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
+                      template='plotly_dark',
+                      paper_bgcolor='rgba(0, 0, 0, 0)',
+                      plot_bgcolor='rgba(0, 0, 0, 0)',
+                     )
     return fig
     
 if __name__ == '__main__':
