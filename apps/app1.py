@@ -21,8 +21,7 @@ pp.layout = html.Div(
                                 dcc.Link('Go to App 2', href='/apps/app2')
                                 ]
                              ),
-                    html.Div(className='eight columns div-for-charts bg-grey',
-                             children=[])
+                    html.Div(className='eight columns div-for-charts bg-grey')
                               ])
         ]
 
