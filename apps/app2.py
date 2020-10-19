@@ -6,6 +6,8 @@ from dash.dependencies import Input, Output
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
+from app import app
+
 
 covid_df = pd.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 covid_df = covid_df[["continent",
@@ -34,6 +36,8 @@ app.layout = html.Div(
                              children=[
                                  html.H2('Coronavirus Statistics'),
                                  html.P('Visualising Coronavirus statistcs for the selected country with Plotly - Dash.'),
+                                  html.Div(id='app-1-display-value'),
+                                  dcc.Link('Go to App 1', href='/apps/app1'),
                                  html.Div(
                                      className='div-for-dropdown',
                                      children=[
@@ -97,5 +101,3 @@ def update_graph(name):
                      )
     return fig
     
-if __name__ == '__main__':
-    app.run_server(debug=False)
