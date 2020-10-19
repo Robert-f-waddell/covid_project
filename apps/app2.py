@@ -22,9 +22,6 @@ covid_df = covid_df[["continent",
 
 covid_df = covid_df[covid_df["total_cases"].notna()]
 
-
-app = dash.Dash(__name__)
-server = app.server
 country_names =covid_df.location.unique()
 country_names.sort()
 
