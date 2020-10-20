@@ -9,8 +9,8 @@ from app import server
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div([
-        dcc.Link('app1', href='/apps/app1'),
-        dcc.Link('app2', href='/apps/app2'),
+        dcc.Link('Global Statistics|', href='/apps/app1'),
+        dcc.Link('National Statistics', href='/apps/app2'),
     ], className="row"),
     html.Div(id='page-content', children=[])
 ])
@@ -24,7 +24,7 @@ def display_page(pathname):
     if pathname == '/apps/app2':
         return app2.layout
     else:
-        return "404 Page Error! Please choose a link"
+        return ""
 
 
 if __name__ == '__main__':
