@@ -34,7 +34,7 @@ layout = html.Div(
                                  html.H2('Coronavirus Statistics'),
                                  html.P('Visualising Coronavirus statistcs for the selected country with Plotly - Dash.'),
                                   html.Div(id='app-1-display-value'),
-                                  dcc.Link('Go to App 1', href='/apps/app1'),
+                                  
                                  html.Div(
                                      className='div-for-dropdown',
                                      children=[
