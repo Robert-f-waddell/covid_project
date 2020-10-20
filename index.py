@@ -19,9 +19,9 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/apps/vgames':
+    if pathname == '/apps/app1':
         return vgames.layout
-    if pathname == '/apps/global_sales':
+    if pathname == '/apps/app2':
         return global_sales.layout
     else:
         return "404 Page Error! Please choose a link"
