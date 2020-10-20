@@ -15,10 +15,9 @@ layout = html.Div(
                  children=[
                     html.Div(className='four columns div-user-controls',
                              children=[
-                                 html.H2('Second page'),
+                                 html.H2('Global Statistics'),
                                  html.P('Coronavirus dashboard using dash - plotly.'),
-                                 html.Div(id='app-1-display-value'),
-                                dcc.Link('Go to App 2', href='/apps/app2')
+                                 html.Div(id='app-1-display-value')
                                 ]
                              ),
                     html.Div(className='eight columns div-for-charts bg-grey')
