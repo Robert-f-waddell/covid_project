@@ -7,6 +7,7 @@ from apps import app1, app2
 from app import server
 
 app.layout = html.Div(
+    dcc.Location(id='url', refresh=False),
     children=[
         html.Div(className='row',
                  children=[
@@ -14,7 +15,7 @@ app.layout = html.Div(
                              children=[
                                  html.H2('Home page'),
                                  html.P('Coronavirus dashboard using dash - plotly.'),
-                                 html.Div(id='app-1-display-value'),
+                                 html.Div(id='page-content'),
                                 dcc.Link('Go to App 1', href='/apps/app1'),
                                 dcc.Link('Go to App 2', href='/apps/app2') 
                                 ]
