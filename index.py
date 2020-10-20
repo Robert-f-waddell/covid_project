@@ -10,9 +10,10 @@ app.layout = html.Div(
     children=[
         html.Div(className='row',
                  children=[
-                    html.Div(dcc.Location(id='url', refresh=False),
+                    html.Div(
                              className='four columns div-user-controls',
                              children=[
+                                 dcc.Location(id='url', refresh=False),
                                  html.H2('Home page'),
                                  html.P('Coronavirus dashboard using dash - plotly.'),
                                  html.Div(id='page-content'),
