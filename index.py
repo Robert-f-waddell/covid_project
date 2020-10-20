@@ -6,10 +6,24 @@ from app import app
 from apps import app1, app2
 from app import server
 
-app.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content')
-])
+app.layout = html.Div(
+    children=[
+        html.Div(className='row',
+                 children=[
+                    html.Div(className='four columns div-user-controls',
+                             children=[
+                                 html.H2('Home page'),
+                                 html.P('Coronavirus dashboard using dash - plotly.'),
+                                 html.Div(id='app-1-display-value'),
+                                dcc.Link('Go to App 1', href='/apps/app1'),
+                                dcc.Link('Go to App 2', href='/apps/app2') 
+                                ]
+                             ),
+                    html.Div(className='eight columns div-for-charts bg-grey')
+                              ])
+        ]
+
+)
 
 
 @app.callback(Output('page-content', 'children'),
