@@ -85,7 +85,7 @@ def update_graph(name):
         row=2, col=2
     )
 
-    fig.update_layout(height=700,
+    fig.update_layout(height=650,
                       width=900,
                       title_text= name,
                       title_font_size = 36,
