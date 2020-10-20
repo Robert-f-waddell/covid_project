@@ -7,7 +7,6 @@ from apps import app1, app2
 from app import server
 
 app.layout = html.Div(
-    dcc.Location(id='url', refresh=False),
     children=[
         html.Div(className='row',
                  children=[
