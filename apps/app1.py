@@ -15,7 +15,7 @@ app.layout = html.Div(
                  children=[
                     html.Div(className='four columns div-user-controls',
                              children=[
-                                 html.H2('Home page'),
+                                 html.H2('Second page'),
                                  html.P('Coronavirus dashboard using dash - plotly.'),
                                  html.Div(id='app-1-display-value'),
                                 dcc.Link('Go to App 2', href='/apps/app2')
