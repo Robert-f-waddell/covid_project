@@ -25,7 +25,7 @@ covid_df = covid_df[covid_df["total_cases"].notna()]
 country_names =covid_df.location.unique()
 country_names.sort()
 
-app.layout = html.Div(
+layout = html.Div(
     children=[
         html.Div(className='row',
                  children=[
