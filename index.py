@@ -9,7 +9,7 @@ from app import server
 app.layout = html.Div(
     children=[
         html.Div(className='row',
-                 children=[
+                 children=[dcc.Location(id='url', refresh=False),
                     html.Div(className='four columns div-user-controls',
                              children=[
                                  html.H2('Home page'),
