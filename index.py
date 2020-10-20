@@ -20,9 +20,9 @@ app.layout = html.Div([
               [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/apps/app1':
-        return vgames.layout
+        return app1.layout
     if pathname == '/apps/app2':
-        return global_sales.layout
+        return app2.layout
     else:
         return "404 Page Error! Please choose a link"
 
