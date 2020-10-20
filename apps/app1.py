@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output
 
 from app import app
 
-app.layout = html.Div(
+layout = html.Div(
     children=[
         html.Div(className='row',
                  children=[
