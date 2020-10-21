@@ -25,6 +25,8 @@ def display_page(pathname):
         return app1.layout
     if pathname == '/apps/app2':
         return app2.layout
+    if pathname == '/apps/app3':
+        return app3.layout
     else:
         return ""
 
