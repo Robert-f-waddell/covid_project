@@ -3,7 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import app1, app2, app3
+from apps import app1, app2
 from app import server
 
 
@@ -12,7 +12,7 @@ app.layout = html.Div([
     html.Div([
         dcc.Link('Global Statistics|', href='/apps/app1'),
         dcc.Link('National Statistics|', href='/apps/app2'),
-        dcc.Link('National Statistics v2', href='/apps/app3'),
+#         dcc.Link('National Statistics v2', href='/apps/app3'),
     ], className="row"),
     html.Div(id='page-content', children=[])
 ])
@@ -25,8 +25,8 @@ def display_page(pathname):
         return app1.layout
     if pathname == '/apps/app2':
         return app2.layout
-    if pathname == '/apps/app3':
-         return app3.layout
+#     if pathname == '/apps/app3':
+#          return app3.layout
     else:
         return ""
 
