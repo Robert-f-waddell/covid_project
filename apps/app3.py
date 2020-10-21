@@ -21,8 +21,6 @@ covid_df = covid_df[["continent",
 covid_df = covid_df[covid_df["total_cases"].notna()]
 
 
-country_names =covid_df.location.unique()
-country_names.sort()
 
 layout = html.Div(
     children=[
@@ -30,15 +28,27 @@ layout = html.Div(
                  children=[
                     html.Div(className='four columns div-user-controls',
                              children=[
-                                 html.H2('Coronavirus National Statistics'),
+                                 html.H2('Coronavirus National Statistics v2'),
                                  html.P('Visualising Coronavirus statistcs for the selected country with Plotly - Dash.'),
                                   html.Div(id='app-1-display-value'),
-                                  
+                                  html.Div(
+                                     className='div-for-checklist',
+                                     children=[
+                                         dcc.Checklist(id='stat-select',
+                                                       options=[{'label': 'Total Cases', 'value': 'total_cases'},
+                                                                {'label': 'Total Deaths', 'value': 'total_deaths'},
+                                                                {'label': 'Daily Cases', 'value': 'new_cases'},
+                                                                {'label': 'Daily Deaths', 'value': 'new_deaths'}],
+                                                        value=["total_cases","total_deaths"],
+                                                       labelStyle={'display': 'inline-block'}
+                                                      ),
+                                     ],
+                                     style={'color': '#1E1E1E'}),
                                  html.Div(
                                      className='div-for-dropdown',
                                      children=[
                                          dcc.Dropdown(id='group-select', options=[{'label': i, 'value': i} for i in country_names],
-                                           value='Country', style={'backgroundColor': '#1E1E1E'}
+                                           multi=True,value='Country', style={'backgroundColor': '#1E1E1E'}
                                                       ),
                                      ],
                                      style={'color': '#1E1E1E'})
@@ -52,48 +62,76 @@ layout = html.Div(
         ]
 
 )
-
+       
 @app.callback(
     Output('country statistics', 'figure'),
-    [Input('group-select', 'value')]
-)
-def update_graph(name):  
-    country_df = covid_df[covid_df["location"].str.contains(name)]
-    country_df = country_df.sort_values(by="date",ascending=True)
-
-
-    fig = make_subplots(rows=2, cols=2,
-                       subplot_titles=("Total Cases", "Daily Cases","Total Deaths","Daily Deaths"))
-
-    fig.add_trace(
-        go.Scatter(x=country_df["date"], y=country_df["total_cases"]),
-        row=1, col=1
-    )
-
-    fig.add_trace(
-        go.Scatter(x=country_df["date"], y=country_df["total_deaths"]),
-        row=2, col=1
-    )
-
-    fig.add_trace(
-        go.Scatter(x=country_df["date"], y=country_df["new_cases"]),
-        row=1, col=2
-    )
-
-    fig.add_trace(
-        go.Scatter(x=country_df["date"], y=country_df["new_deaths"]),
-        row=2, col=2
-    )
-
-    fig.update_layout(height=650,
-                      width=900,
-                      title_text= name,
-                      title_font_size = 36,
-                      font_family =  "Open Sans Semi Bold",
-                      title_font_family =  "Open Sans Semi Bold",
-                      showlegend=False,
-                      colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
-                      template='plotly_dark'
-                     )
-    return fig
+    [Input('group-select', 'value'),
+    Input("stat-select","value")]
     
+)
+        
+
+        
+def update_graph(name,stat):  
+   
+  
+#     stat= ["total_cases","total_deaths"]
+
+    Cname=[]
+    del Cname[:]
+    if type(name) == str:
+        Cname.append(name)
+    else:
+        Cname.extend(name)
+    
+    
+    
+    # Create figure
+    fig = go.Figure()
+
+    
+    for j in Cname:
+        for i in stat:
+            fig.add_trace(
+            go.Scatter(x=covid_df["date"][covid_df["location"]==j], y=covid_df[i][covid_df["location"]==j],
+            name=j +" "+ i))
+
+        # Set title
+    fig.update_layout(
+        title_text="Time series with range slider and selectors"
+    )
+
+    # Add range slider
+    fig.update_layout(height=700,
+                      width=900,
+        xaxis=dict(
+            rangeselector=dict(
+                buttons=list([
+                    dict(count=1,
+                         label="1m",
+                         step="month",
+                         stepmode="backward"),
+                    dict(count=6,
+                         label="6m",
+                         step="month",
+                         stepmode="backward"),
+                    dict(count=1,
+                         label="YTD",
+                         step="year",
+                         stepmode="todate"),
+                    dict(count=1,
+                         label="1y",
+                         step="year",
+                         stepmode="backward"),
+                    dict(step="all")
+                ])
+            ),
+            rangeslider=dict(
+                visible=True
+            ),
+            type="date"
+        )
+    )
+
+
+    return fig
