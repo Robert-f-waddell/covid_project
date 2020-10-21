@@ -3,15 +3,16 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import app1, app2
+from apps import app1, app2, app3
 from app import server
 
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div([
-        dcc.Link('Global Statistics|', href='/apps/app1'),
-        dcc.Link('National Statistics', href='/apps/app2'),
+        dcc.Link('Global Statistics| ', href='/apps/app1'),
+        dcc.Link('National Statistics| ', href='/apps/app2'),
+        dcc.Link('National Statistics v2', href='/apps/app3'),
     ], className="row"),
     html.Div(id='page-content', children=[])
 ])
