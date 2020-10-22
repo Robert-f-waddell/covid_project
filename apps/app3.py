@@ -45,7 +45,7 @@ layout = html.Div(
                                                                 {'label': 'Daily Deaths', 'value': 'new_deaths'}],
                                                         value=["total_cases","total_deaths"],
                                                        labelStyle={'display': 'inline-block'},
-                                                       style={'backgroundColor': 'rgb(30,30,30)'}
+                                                       style={"color": "white"}
                                                       ),
                                      ],
                                      style={'color': '#1E1E1E'}),
