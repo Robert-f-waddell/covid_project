@@ -130,7 +130,8 @@ def update_graph(name,stat):
                          step="year",
                          stepmode="backward"),
                     dict(step="all")
-                ])
+                ]),
+              bgcolor = 'rgb(30,30,30)'
             ),
             rangeslider=dict(
                 visible=True
