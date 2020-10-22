@@ -109,6 +109,7 @@ def update_graph(name,stat):
     fig.update_layout(height=700,
                       width=900,
                       template = 'plotly_dark',
+                      plot_bgcolor='rgb(80,80,80)',
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
