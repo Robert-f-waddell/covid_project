@@ -51,8 +51,8 @@ layout = html.Div(
                                  html.Div(
                                      className='div-for-dropdown',
                                      children=[
-                                         dcc.Dropdown(id='group-select', options=[{'label': i, 'value': i} for i in country_names],
-                                           multi=True,value='Country', style={'backgroundColor': '#1E1E1E'}
+                                         dcc.Dropdown(id='group-select2', options=[{'label': i, 'value': i} for i in country_names],
+                                           multi=True,value='France', style={'backgroundColor': '#1E1E1E'}
                                                       ),
                                      ],
                                      style={'color': '#1E1E1E'})
@@ -60,7 +60,7 @@ layout = html.Div(
                              ),
                     html.Div(className='eight columns div-for-charts bg-grey',
                              children=[
-                                 dcc.Graph('country statistics', config={'displayModeBar': False})
+                                 dcc.Graph('country statistics2', config={'displayModeBar': False})
                              ])
                               ])
         ]
@@ -68,8 +68,8 @@ layout = html.Div(
 )
        
 @app.callback(
-    Output('country statistics', 'figure'),
-    [Input('group-select', 'value'),
+    Output('country statistics2', 'figure'),
+    [Input('group-select2', 'value'),
     Input("stat-select","value")]
     
 )
