@@ -139,5 +139,6 @@ def update_graph(name,stat):
 
     return fig
 
-
+if __name__ == '__main__':
+    app.run_server(debug=False)
 
