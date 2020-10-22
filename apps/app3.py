@@ -106,8 +106,10 @@ def update_graph(name,stat):
     )
 
     # Add range slider
-    fig.update_layout(height=700,
-                      width=900,
+    fig.update_layout(height=600,
+                      width=800,
+                      template = 'plotly_dark',
+                      colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
