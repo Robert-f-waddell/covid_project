@@ -36,7 +36,7 @@ for m in months:
 
 
 
-app.layout = html.Div(
+layout = html.Div(
     children=[
         html.Div(className='row',
                  children=[
