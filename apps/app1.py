@@ -1,4 +1,3 @@
-
 import plotly.express as px
 from datetime import datetime as dt
 import pandas as pd
@@ -24,7 +23,8 @@ covid_df = covid_df[["iso_code",
                     "new_deaths_smoothed",]]
 covid_df = covid_df[covid_df["total_cases"].notna()]
 covid_df['m_date'] = pd.to_datetime(covid_df["date"], format='%Y-%m-%d').apply(lambda x: x.strftime('%Y-%m'))
-covid_df = covid_df[covid_df["iso_code"] != "OWID_WRL"]
+covid_df1 = covid_df[covid_df["iso_code"] != "OWID_WRL"]
+covid_df2 = covid_df[covid_df["iso_code"] == "OWID_WRL"]
 months = covid_df.m_date.unique()
 months.sort()
 monthsdict ={}
@@ -33,7 +33,10 @@ for m in months:
     i=i+1
     monthsdict[i] = str(m)
 
-layout = html.Div(
+
+
+
+app.layout = html.Div(
     children=[
         html.Div(className='row',
                  children=[
@@ -56,6 +59,10 @@ layout = html.Div(
                                         marks = monthsdict
                                         
                                     )
+                             ]),
+                     html.Div(className='two columns div-for-charts bg-grey',
+                             children=[
+                                 dcc.Graph(id='stacked-graph')
                              ])
                               ])
         ]
@@ -66,8 +73,9 @@ layout = html.Div(
     Output('graph-with-slider', 'figure'),
     [Input('year-slider', 'value')])
 
+
 def update_global2(mno):
-    test=covid_df[covid_df["m_date"]==monthsdict[mno]].sort_values(by="date")
+    test=covid_df1[covid_df1["m_date"]==monthsdict[mno]].sort_values(by="date")
     covid_df_year = test[test["date"]==test["date"].min()]
     
     
@@ -100,8 +108,8 @@ def update_global2(mno):
 
     fig.update_layout(height = 650,
                       width = 900,
-                      template = "plotly_dark",
-      
+    #                   template = "plotly_dark",
+        title_text='Global Map',
         geo=dict(
             showframe=False,
             showcoastlines=True,
@@ -111,4 +119,55 @@ def update_global2(mno):
         )
 
 
+    return fig
+
+@app.callback(
+    Output('stacked-graph', 'figure'),
+    [Input('year-slider', 'value')])
+
+def update_graph_global(nmo): 
+    
+    
+    test=covid_df2[covid_df2["m_date"]==monthsdict[nmo]].sort_values(by="date")
+    global_df = covid_df2[covid_df2["date"]<= test["date"].min() ]
+    
+    
+
+
+    fig = make_subplots(rows=4, cols=1,
+                       subplot_titles=("Total Cases", "Daily Cases","Total Deaths","Daily Deaths"))
+
+    fig.add_trace(
+        go.Scatter(x=global_df["date"], y=global_df["total_cases"]),
+        row=1, col=1
+    )
+
+    fig.add_trace(
+        go.Scatter(x=global_df["date"], y=global_df["total_deaths"]),
+        row=2, col=1
+    )
+
+    fig.add_trace(
+        go.Scatter(x=global_df["date"], y=global_df["new_cases_smoothed"]),
+        row=3, col=1
+    )
+
+    fig.add_trace(
+        go.Scatter(x=global_df["date"], y=global_df["new_deaths_smoothed"]),
+        row=4, col=1
+    )
+
+    fig.update_xaxes(visible = False)
+    
+    
+    fig.update_layout(height=700,
+                      width=225,
+                      title_text= "Global Statistics",
+                      
+                      font_family =  "Open Sans Semi Bold",
+                      title_font_family =  "Open Sans Semi Bold",
+                      showlegend=False,
+                      colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
+                      template='plotly_dark'
+                     )
     return fig
