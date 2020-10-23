@@ -108,8 +108,8 @@ def update_global2(mno):
 
     fig.update_layout(height = 650,
                       width = 900,
-    #                   template = "plotly_dark",
-        title_text='Global Map',
+                       template = "plotly_dark",
+        title_text='Global heat map for Total cases',
         geo=dict(
             showframe=False,
             showcoastlines=True,
@@ -161,7 +161,7 @@ def update_graph_global(nmo):
     
     
     fig.update_layout(height=700,
-                      width=225,
+                      width=300,
                       title_text= "Global Statistics",
                       
                       font_family =  "Open Sans Semi Bold",
