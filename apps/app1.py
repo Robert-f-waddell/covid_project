@@ -60,7 +60,7 @@ layout = html.Div(
                                         
                                     )
                              ]),
-                     html.Div(className='two columns div-for-charts bg-grey',
+                     html.Div(className='three columns div-for-charts bg-grey',
                              children=[
                                  dcc.Graph(id='stacked-graph')
                              ])
