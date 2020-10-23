@@ -100,8 +100,8 @@ def update_global2(mno):
 
     fig.update_layout(height = 650,
                       width = 900,
-    #                   template = "plotly_dark",
-        title_text='Global Map',
+                      template = "plotly_dark",
+      
         geo=dict(
             showframe=False,
             showcoastlines=True,
