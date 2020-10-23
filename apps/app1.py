@@ -134,33 +134,33 @@ def update_graph_global(nmo):
     
 
 
-    fig = make_subplots(rows=4, cols=1,
+    fig1 = make_subplots(rows=4, cols=1,
                        subplot_titles=("Total Cases", "Daily Cases","Total Deaths","Daily Deaths"))
 
-    fig.add_trace(
+    fig1.add_trace(
         go.Scatter(x=global_df["date"], y=global_df["total_cases"]),
         row=1, col=1
     )
 
-    fig.add_trace(
+    fig1.add_trace(
         go.Scatter(x=global_df["date"], y=global_df["total_deaths"]),
         row=2, col=1
     )
 
-    fig.add_trace(
+    fig1.add_trace(
         go.Scatter(x=global_df["date"], y=global_df["new_cases_smoothed"]),
         row=3, col=1
     )
 
-    fig.add_trace(
+    fig1.add_trace(
         go.Scatter(x=global_df["date"], y=global_df["new_deaths_smoothed"]),
         row=4, col=1
     )
 
-    fig.update_xaxes(visible = False)
+    fig1.update_xaxes(visible = False)
     
     
-    fig.update_layout(height=700,
+    fig1.update_layout(height=700,
                       width=250,
                       title_text= "Global Statistics",
                       
@@ -170,4 +170,4 @@ def update_graph_global(nmo):
                       colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
                       template='plotly_dark'
                      )
-    return fig
+    return fig1
