@@ -37,7 +37,7 @@ layout = html.Div(
     children=[
         html.Div(className='row',
                  children=[
-                    html.Div(className='four columns div-user-controls',
+                    html.Div(className='two columns div-user-controls',
                              children=[
                                  html.H2('Coronavirus Global Statistics'),
                                  html.P('Visualising Coronavirus statistcs for the selected country with Plotly - Dash.'),
