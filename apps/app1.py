@@ -161,7 +161,7 @@ def update_graph_global(nmo):
     
     
     fig.update_layout(height=700,
-                      width=300,
+                      width=250,
                       title_text= "Global Statistics",
                       
                       font_family =  "Open Sans Semi Bold",
