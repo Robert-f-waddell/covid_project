@@ -62,7 +62,7 @@ layout = html.Div(
                              ]),
                      html.Div(className='two columns div-for-charts bg-grey',
                              children=[
-                                 dcc.Graph(id='stacked-graph')
+#                                  dcc.Graph(id='stacked-graph')
                              ])
                               ])
         ]
@@ -125,49 +125,49 @@ def update_global2(mno):
 #     Output('stacked-graph', 'figure'),
 #     [Input('year-slider', 'value')])
 
-def update_graph_global(nmo): 
+# def update_graph_global(nmo): 
     
     
-#     test=covid_df2[covid_df2["m_date"]==monthsdict[nmo]].sort_values(by="date")
-#     global_df = covid_df2[covid_df2["date"]<= test["date"].min() ]
+# #     test=covid_df2[covid_df2["m_date"]==monthsdict[nmo]].sort_values(by="date")
+# #     global_df = covid_df2[covid_df2["date"]<= test["date"].min() ]
     
     
 
 
-    fig1 = make_subplots(rows=4, cols=1,
-                       subplot_titles=("Total Cases", "Daily Cases","Total Deaths","Daily Deaths"))
+#     fig1 = make_subplots(rows=4, cols=1,
+#                        subplot_titles=("Total Cases", "Daily Cases","Total Deaths","Daily Deaths"))
 
-    fig1.add_trace(
-        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["total_cases"]),
-        row=1, col=1
-    )
+#     fig1.add_trace(
+#         go.Scatter(x=covid_df2["date"].max(), y=covid_df2["total_cases"]),
+#         row=1, col=1
+#     )
 
-    fig1.add_trace(
-        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["total_deaths"]),
-        row=2, col=1
-    )
+#     fig1.add_trace(
+#         go.Scatter(x=covid_df2["date"].max(), y=covid_df2["total_deaths"]),
+#         row=2, col=1
+#     )
 
-    fig1.add_trace(
-        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["new_cases_smoothed"]),
-        row=3, col=1
-    )
+#     fig1.add_trace(
+#         go.Scatter(x=covid_df2["date"].max(), y=covid_df2["new_cases_smoothed"]),
+#         row=3, col=1
+#     )
 
-    fig1.add_trace(
-        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["new_deaths_smoothed"]),
-        row=4, col=1
-    )
+#     fig1.add_trace(
+#         go.Scatter(x=covid_df2["date"].max(), y=covid_df2["new_deaths_smoothed"]),
+#         row=4, col=1
+#     )
 
-    fig1.update_xaxes(visible = False)
+#     fig1.update_xaxes(visible = False)
     
     
-    fig1.update_layout(height=700,
-                      width=250,
-                      title_text= "Global Statistics",
+#     fig1.update_layout(height=700,
+#                       width=250,
+#                       title_text= "Global Statistics",
                       
-                      font_family =  "Open Sans Semi Bold",
-                      title_font_family =  "Open Sans Semi Bold",
-                      showlegend=False,
-                      colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
-                      template='plotly_dark'
-                     )
-    return fig1
+#                       font_family =  "Open Sans Semi Bold",
+#                       title_font_family =  "Open Sans Semi Bold",
+#                       showlegend=False,
+#                       colorway=["#5E0DAC", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
+#                       template='plotly_dark'
+#                      )
+#     return fig1
