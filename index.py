@@ -28,7 +28,7 @@ from app import server
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div([
-        dcc.Link('Global Statistics|', href='/apps/app1'),
+        dcc.Link(html.Button('Global Statistics|'), href='/apps/app1'),
         dcc.Link('National Statistics|', href='/apps/app2'),
         dcc.Link('National Statistics v2|', href='/apps/app3'),
         dcc.Link('Link to Github Repository', href='https://github.com/Robert-f-waddell/covid_project')
