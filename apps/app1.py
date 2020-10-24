@@ -23,7 +23,7 @@ covid_df = covid_df[["iso_code",
                     "new_deaths_smoothed",]]
 covid_df = covid_df[covid_df["total_cases"].notna()]
 covid_df['m_date'] = pd.to_datetime(covid_df["date"], format='%Y-%m-%d').apply(lambda x: x.strftime('%Y-%m'))
-covid_df = covid_df[covid_df["iso_code"] != "OWID_WRL"]
+covid_df1 = covid_df[covid_df["iso_code"] != "OWID_WRL"]
 months = covid_df.m_date.unique()
 months.sort()
 monthsdict ={}
@@ -66,7 +66,7 @@ layout = html.Div(
     [Input('year-slider', 'value')])
 
 def update_global2(mno):
-    test=covid_df[covid_df["m_date"]==monthsdict[mno]].sort_values(by="date")
+    test=covid_df1[covid_df1["m_date"]==monthsdict[mno]].sort_values(by="date")
     covid_df_year = test[test["date"]==test["date"].min()]
     
     
