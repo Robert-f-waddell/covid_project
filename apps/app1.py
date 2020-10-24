@@ -121,15 +121,15 @@ def update_global2(mno):
 
     return fig
 
-@app.callback(
-    Output('stacked-graph', 'figure'),
-    [Input('year-slider', 'value')])
+# @app.callback(
+#     Output('stacked-graph', 'figure'),
+#     [Input('year-slider', 'value')])
 
 def update_graph_global(nmo): 
     
     
-    test=covid_df2[covid_df2["m_date"]==monthsdict[nmo]].sort_values(by="date")
-    global_df = covid_df2[covid_df2["date"]<= test["date"].min() ]
+#     test=covid_df2[covid_df2["m_date"]==monthsdict[nmo]].sort_values(by="date")
+#     global_df = covid_df2[covid_df2["date"]<= test["date"].min() ]
     
     
 
@@ -138,22 +138,22 @@ def update_graph_global(nmo):
                        subplot_titles=("Total Cases", "Daily Cases","Total Deaths","Daily Deaths"))
 
     fig1.add_trace(
-        go.Scatter(x=global_df["date"], y=global_df["total_cases"]),
+        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["total_cases"]),
         row=1, col=1
     )
 
     fig1.add_trace(
-        go.Scatter(x=global_df["date"], y=global_df["total_deaths"]),
+        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["total_deaths"]),
         row=2, col=1
     )
 
     fig1.add_trace(
-        go.Scatter(x=global_df["date"], y=global_df["new_cases_smoothed"]),
+        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["new_cases_smoothed"]),
         row=3, col=1
     )
 
     fig1.add_trace(
-        go.Scatter(x=global_df["date"], y=global_df["new_deaths_smoothed"]),
+        go.Scatter(x=covid_df2["date"].max(), y=covid_df2["new_deaths_smoothed"]),
         row=4, col=1
     )
 
