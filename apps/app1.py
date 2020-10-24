@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output
 # import plotly.graph_objects as go
 
 from app import app
-
+from index import covid_df
 # covid_df = pd.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 # covid_df = covid_df[["iso_code",
 #                     "continent",
