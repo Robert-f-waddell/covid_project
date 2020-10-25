@@ -50,7 +50,7 @@ def display_page(pathname):
     elif pathname == '/apps/homepage':
          return homepage.layout
     else:
-        return ""
+        return homepage.layout
 
 
 if __name__ == '__main__':
