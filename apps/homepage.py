@@ -44,7 +44,7 @@ layout = html.Div(
                                                                 {'label': 'Total Deaths', 'value': 'total_deaths'},
                                                                 {'label': 'Daily Cases', 'value': 'new_cases'},
                                                                 {'label': 'Daily Deaths', 'value': 'new_deaths'}],
-                                                        value=["total_cases","total_deaths"],
+                                                        value=['new_cases'],
                                                        labelStyle={'display': 'inline-block'},
                                                        style={"color": "white"}
                                                       ),
