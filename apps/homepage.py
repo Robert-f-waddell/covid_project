@@ -39,7 +39,7 @@ layout = html.Div(
                              ),
                     html.Div(className='eight columns div-for-charts bg-grey',
                              children=[
-                                 dcc.Checklist(id='stat-select',
+                                 dcc.Checklist(id='stat-select2',
                                                        options=[{'label': 'Total Cases', 'value': 'total_cases'},
                                                                 {'label': 'Total Deaths', 'value': 'total_deaths'},
                                                                 {'label': 'Daily Cases', 'value': 'new_cases'},
@@ -48,7 +48,7 @@ layout = html.Div(
                                                        labelStyle={'display': 'inline-block'},
                                                        style={"color": "white"}
                                                       ),
-                                 dcc.Graph('country statistics2', config={'displayModeBar': False})
+                                 dcc.Graph('country statistics3', config={'displayModeBar': False})
                              ],style={'color': '#1E1E1E'}),
                      
                               ])
@@ -57,8 +57,8 @@ layout = html.Div(
 )
        
 @app.callback(
-    Output('country statistics2', 'figure'),
-    [Input("stat-select","value")]
+    Output('country statistics3', 'figure'),
+    [Input("stat-select2","value")]
     
 )
         
