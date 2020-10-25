@@ -83,7 +83,7 @@ def update_graph(stat):
 
         # Set title
     fig.update_layout(
-        title_text="Time series with range slider and selectors"
+        title_text="Global Covid-19 Statistics"
     )
 
     # Add range slider
