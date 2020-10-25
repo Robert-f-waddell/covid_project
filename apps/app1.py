@@ -23,7 +23,7 @@ covid_df = covid_df[["iso_code",
 covid_df = covid_df[covid_df["total_cases"].notna()]
 covid_df['m_date'] = pd.to_datetime(covid_df["date"], format='%Y-%m-%d').apply(lambda x: x.strftime('%Y-%m'))
 covid_df1 = covid_df[covid_df["iso_code"] != "OWID_WRL"]
-covid_df = covid_df1[covid_df1["date"].str.contains("-01")]
+covid_df1 = covid_df1[covid_df1["date"].str.contains("-01")]
 months = covid_df.m_date.unique()
 months.sort()
 monthsdict ={}
