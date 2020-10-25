@@ -31,8 +31,8 @@ layout = html.Div(
                  children=[
                     html.Div(className='four columns div-user-controls',
                              children=[
-                                 html.H2('Coronavirus National Statistics'),
-                                 html.P('Visualising Coronavirus statistcs for the selected country with Plotly - Dash.'),
+                                 html.H2('Coronavirus Dashboard'),
+                                 html.P('Homepage'),
                                   html.Div(id='app-1-display-value')
                                  
                                 ]
