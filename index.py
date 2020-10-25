@@ -7,7 +7,7 @@ from dash.dependencies import Input, Output
 # from plotly.subplots import make_subplots
 # import plotly.graph_objects as go
 from app import app
-from apps import app1, app2,app3
+from apps import app1, app2,app3, homepage
 from app import server
 # covid_df = pd.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 # covid_df = covid_df[["iso_code",
@@ -28,6 +28,7 @@ from app import server
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div([
+        dcc.Link(html.Button('Homepage'), href='/apps/homepage'),
         dcc.Link(html.Button('Global Statistics'), href='/apps/app1'),
         dcc.Link(html.Button('National Statistics'), href='/apps/app2'),
         dcc.Link(html.Button('National Statistics v2'), href='/apps/app3'),
@@ -46,6 +47,8 @@ def display_page(pathname):
         return app2.layout
     elif pathname == '/apps/app3':
          return app3.layout
+    elif pathname == '/apps/homepage':
+         return homepage.layout
     else:
         return ""
 
