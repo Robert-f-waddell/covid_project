@@ -32,7 +32,7 @@ app.layout = html.Div([
         dcc.Link(html.Button('Global Statistics'), href='/apps/app1'),
         dcc.Link(html.Button('National Statistics'), href='/apps/app2'),
         dcc.Link(html.Button('National Statistics v2'), href='/apps/app3'),
-        dcc.Link(html.Button('Link to Github Repository'), href='https://github.com/Robert-f-waddell/covid_project',target='_blank')
+        dcc.Link(html.Button('Link to Github Repository'), href='https://github.com/Robert-f-waddell/covid_project')
     ], className="row"),
     html.Div(id='page-content', children=[])
 ])
