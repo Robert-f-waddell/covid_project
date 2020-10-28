@@ -54,6 +54,7 @@ layout = html.Div(
                                         marks = monthsdict
                                         
                                     ),
+                               html.P(''),
                                  dcc.Graph(id='graph-with-slider')
                                     
                              ])
