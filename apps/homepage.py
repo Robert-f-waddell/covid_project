@@ -87,7 +87,7 @@ def update_graph(stat):
     )
 
     # Add range slider
-    fig.update_layout(height=700,
+    fig.update_layout(height=600,
                       width=900,
                       template = 'plotly_dark',
                       plot_bgcolor='rgb(30,30,30)',
