@@ -45,8 +45,7 @@ layout = html.Div(
                              ),
                     html.Div(className='eight columns div-for-charts bg-grey',
                              children=[
-                                 dcc.Graph(id='graph-with-slider'),
-                                    dcc.Slider(
+                               dcc.Slider(
                                         id='year-slider',
                                         min=1,
                                         max=len(monthsdict),
@@ -54,7 +53,9 @@ layout = html.Div(
                                         step=None,
                                         marks = monthsdict
                                         
-                                    )
+                                    ),
+                                 dcc.Graph(id='graph-with-slider')
+                                    
                              ])
                               ])
         ]
@@ -97,7 +98,7 @@ def update_global2(mno):
         colorbar_title = 'Total Cases',
     ))
 
-    fig.update_layout(height = 600,
+    fig.update_layout(height = 650,
                       width = 900,
                       template = "plotly_dark",
       
