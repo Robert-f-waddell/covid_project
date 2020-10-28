@@ -98,7 +98,7 @@ def update_global2(mno):
         colorbar_title = 'Total Cases',
     ))
 
-    fig.update_layout(height = 600,
+    fig.update_layout(height = 550,
                       width = 900,
                       template = "plotly_dark",
       
