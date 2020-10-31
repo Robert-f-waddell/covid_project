@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 from app import app
-
+# importing the current covid data as a csv file and cleaning it
 covid_df = pd.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 covid_df = covid_df[["continent",
                      "location",
@@ -67,7 +67,6 @@ layout = html.Div(
 def update_graph(stat):  
    
   
-#     stat= ["total_cases","total_deaths"]
 
     
     
@@ -75,7 +74,7 @@ def update_graph(stat):
     # Create figure
     fig = go.Figure()
 
-    
+#    for loop allowing mulitple traces to be plotted on the chart
     for i in stat:
             fig.add_trace(
             go.Scatter(x=covid_df["date"][covid_df["location"]=="World"], y=covid_df[i][covid_df["location"]=="World"],
