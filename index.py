@@ -20,7 +20,7 @@ from app import server
 
 
 
-
+# layout for the navigation bar at the top
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div([
@@ -33,9 +33,11 @@ app.layout = html.Div([
     html.Div(id='page-content', children=[])
 ])
 
-
+# callback allowing you to navigate between app pages
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
+
+
 def display_page(pathname):
     if pathname == '/apps/app1':
         return app1.layout
